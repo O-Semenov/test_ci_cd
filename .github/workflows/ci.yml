@@ -43,25 +43,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      - name: Build and push Docker images
-        run: docker-compose -f "../docker-compose.yml" build
+#      - name: Build and push Docker images
+#        run: docker-compose -f "../docker-compose.yml" build
 
-      - name: Run Docker Compose
-        run: docker-compose -f "../docker-compose.yml" up -d
+#      - name: Run Docker Compose
+#        run: docker-compose -f "../docker-compose.yml" up -d
 
-      - name: Run tests
-        run: |
-          # Добавьте ваши тесты здесь, например:
-          docker-compose exec joomla php /var/www/html/cli/test.php
+      - name: Install dependencies
+        run: composer install
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Run PHPCS
+        run: vendor/bin/phpcs --standard=phpcs.xml src/
 
-      - name: Deploy to Server
-        run: |
-          # Команды для деплоя, например, scp или rsync
-          # scp -r ./joomla-modules user@server:/path/to/joomla/modules
+      - name: Run PHP Mess Detector
+        run: vendor/bin/phpmd src/ text phpmd.xml
+
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit --configuration phpunit.xml
