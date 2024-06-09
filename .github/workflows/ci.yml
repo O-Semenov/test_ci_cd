@@ -51,9 +51,9 @@ jobs:
 
 #      - name: Install dependencies
 #        run: composer install
-
-      - name: Run PHP Code Beautifier and Fixer (phpcbf)
-        run: vendor/bin/phpcbf --standard=phpcs.xml modules/
+# ready
+#      - name: Run PHP Code Beautifier and Fixer (phpcbf)
+#        run: vendor/bin/phpcbf --standard=phpcs.xml modules/
 # ready
 #     - name: Run PHPCS
 #        run: vendor/bin/phpcs --standard=phpcs.xml modules/
