@@ -78,6 +78,9 @@ class RelatedItemsHelper implements DatabaseAwareInterface
 
         if ($id) {
             // Select the meta keywords from the item
+
+
+
             $query->select($db->quoteName('metakey'))
                 ->from($db->quoteName('#__content'))
                 ->where($db->quoteName('id') . ' = :id')
