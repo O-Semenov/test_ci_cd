@@ -53,10 +53,10 @@ jobs:
         run: composer install
 
       - name: Run PHPCS
-        run: vendor/bin/phpcs --standard=phpcs.xml src/
+        run: vendor/bin/phpcs --standard=phpcs.xml modules/
 
       - name: Run PHP Mess Detector
-        run: vendor/bin/phpmd src/ text phpmd.xml
+        run: vendor/bin/phpmd module/ text phpmd.xml
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration phpunit.xml
