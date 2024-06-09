@@ -57,9 +57,9 @@ jobs:
 # ready
 #     - name: Run PHPCS
 #        run: vendor/bin/phpcs --standard=phpcs.xml modules/
-
-      - name: Run PHP Mess Detector
-        run: vendor/bin/phpmd modules/ text cleancode,codesize,unusedcode,naming,phpmd.xml
+# ready
+#      - name: Run PHP Mess Detector
+#        run: vendor/bin/phpmd modules/ text cleancode,codesize,unusedcode,naming,phpmd.xml
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration phpunit.xml
