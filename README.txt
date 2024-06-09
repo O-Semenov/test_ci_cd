@@ -1,4 +1,4 @@
-Joomla! CMS™
+Joomla! CMS test™
 
 The Joomla! 5.1 branch is under heavy development and not all links in this document are available yet
 ------------------------------------------------------------------------------------------------------
