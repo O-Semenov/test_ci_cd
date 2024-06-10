@@ -16,23 +16,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-#      - name: Build and push Docker images
-#        run: docker-compose -f "../docker-compose.yml" build
-
-#      - name: Run Docker Compose
-#        run: docker-compose -f "../docker-compose.yml" up -d
-
-#      - name: Install dependencies
-#        run: composer install
+      - name: Install dependencies
+        run: composer install
 # ready
-#      - name: Run PHP Code Beautifier and Fixer (phpcbf)
-#        run: vendor/bin/phpcbf --standard=phpcs.xml modules/
+      - name: Run PHP Code Beautifier and Fixer (phpcbf)
+        run: vendor/bin/phpcbf --standard=phpcs.xml modules/
 # ready
-#     - name: Run PHPCS
-#        run: vendor/bin/phpcs --standard=phpcs.xml modules/
+     - name: Run PHPCS
+        run: vendor/bin/phpcs --standard=phpcs.xml modules/
 # ready
-#      - name: Run PHP Mess Detector
-#        run: vendor/bin/phpmd modules/ text cleancode,codesize,unusedcode,naming,phpmd.xml
+      - name: Run PHP Mess Detector
+        run: vendor/bin/phpmd modules/ text cleancode,codesize,unusedcode,naming,phpmd.xml
 
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit --configuration phpunit.xml
